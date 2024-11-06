@@ -1,63 +1,103 @@
-const App = () => {
-  const course = 'Half Stack application development';
-  const part1 = 'Fundamentals of React';
-  const exercises1 = 10;
-  const part2 = 'Using props to pass data';
-  const exercises2 = 7;
-  const part3 = 'State of a component';
-  const exercises3 = 14;
+import React, { useState } from 'react';
+
+export default function StudentForm() {
+  const [student, setStudent] = useState({
+    firstName: '',
+    lastName: '',
+    age: '',
+    address: '',
+    homeroomClassNumber: '',
+    studentID: '',
+    favoriteLunch: '',
+  });
+
+  function handleChange({ target: { name, value } }) {
+    setStudent((prevStudent) => ({ ...prevStudent, [name]: value }));
+  }
 
   return (
     <div>
-      <Header course={course} />
-      <Content
-        part1={part1}
-        part2={part2}
-        part3={part3}
-        exercises1={exercises1}
-        exercises2={exercises2}
-        exercises3={exercises3}
-      />
-      <Total
-        exercises1={exercises1}
-        exercises2={exercises2}
-        exercises3={exercises3}
-      />
-    </div>
-  );
-};
-
-export default App;
-
-function Header(props) {
-  return <h1>{props.course}</h1>;
-}
-
-const Content = function (props) {
-  return (
-    <div>
-      <Part part={props.part1} exercises={props.exercises1} />
-      <Part part={props.part2} exercises={props.exercises2} />
-      <Part part={props.part3} exercises={props.exercises3} />
-    </div>
-  );
-};
-
-function Part(props) {
-  return (
-    <div>
+      <form>
+        <label>
+          First name:
+          <input
+            type="text"
+            name="firstName"
+            value={student.firstName}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Last name:
+          <input
+            type="text"
+            name="lastName"
+            value={student.lastName}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Age:
+          <input
+            type="number"
+            name="age"
+            value={student.age}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Address:
+          <input
+            type="text"
+            name="address"
+            value={student.address}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Homeroom class number:
+          <input
+            type="number"
+            name="homeroomClassNumber"
+            value={student.homeroomClassNumber}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Student ID:
+          <input
+            type="number"
+            name="studentID"
+            value={student.studentID}
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Favorite lunch:
+          <select name="favoriteLunch" onChange={handleChange}>
+            <option value="">-- Choose a lunch --</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Sandwich">Sandwich</option>
+            <option value="Salad">Salad</option>
+          </select>
+        </label>
+      </form>
       <p>
-        {props.part} {props.exercises}
-      </p>
-    </div>
-  );
-}
-function Total(props) {
-  return (
-    <div>
-      <p>
-        Number of exercises{' '}
-        {props.exercises1 + props.exercises2 + props.exercises3}
+        Student info:
+        <br />
+        {student.firstName}
+        <br />
+        {student.lastName}
+        <br />
+        {student.age}
+        <br />
+        {student.address}
+        <br />
+        {student.homeroomClassNumber}
+        <br />
+        {student.studentID}
+        <br />
+        {student.favoriteLunch}
       </p>
     </div>
   );
