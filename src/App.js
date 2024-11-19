@@ -1,104 +1,75 @@
 import React, { useState } from 'react';
+import './style.css';
 
-export default function StudentForm() {
-  const [student, setStudent] = useState({
-    firstName: '',
-    lastName: '',
-    age: '',
-    address: '',
-    homeroomClassNumber: '',
-    studentID: '',
-    favoriteLunch: '',
-  });
-
-  function handleChange({ target: { name, value } }) {
-    setStudent((prevStudent) => ({ ...prevStudent, [name]: value }));
-  }
-
+export default function App() {
   return (
     <div>
-      <form>
-        <label>
-          First name:
-          <input
-            type="text"
-            name="firstName"
-            value={student.firstName}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Last name:
-          <input
-            type="text"
-            name="lastName"
-            value={student.lastName}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Age:
-          <input
-            type="number"
-            name="age"
-            value={student.age}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Address:
-          <input
-            type="text"
-            name="address"
-            value={student.address}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Homeroom class number:
-          <input
-            type="number"
-            name="homeroomClassNumber"
-            value={student.homeroomClassNumber}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Student ID:
-          <input
-            type="number"
-            name="studentID"
-            value={student.studentID}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Favorite lunch:
-          <select name="favoriteLunch" onChange={handleChange}>
-            <option value="">-- Choose a lunch --</option>
-            <option value="Pizza">Pizza</option>
-            <option value="Sandwich">Sandwich</option>
-            <option value="Salad">Salad</option>
-          </select>
-        </label>
-      </form>
-      <p>
-        Student info:
-        <br />
-        {student.firstName}
-        <br />
-        {student.lastName}
-        <br />
-        {student.age}
-        <br />
-        {student.address}
-        <br />
-        {student.homeroomClassNumber}
-        <br />
-        {student.studentID}
-        <br />
-        {student.favoriteLunch}
-      </p>
+      <TextExpander
+        collapsedNumWords={10}
+        expandButtonText="Show more"
+        collapseButtonText="Show less"
+        buttonColor="blue"
+      >
+        Space travel is the ultimate adventure! Imagine soaring past the stars
+        and exploring new worlds. It's the stuff of dreams and science fiction,
+        but believe it or not, space travel is a real thing. Humans and robots
+        are constantly venturing out into the cosmos to uncover its secrets and
+        push the boundaries of what's possible.
+      </TextExpander>
+
+      <TextExpander
+        collapsedNumWords={20}
+        expandButtonText="Show text"
+        collapseButtonText="Collapse text"
+        buttonColor="#ff6622"
+      >
+        Space travel requires some seriously amazing technology and
+        collaboration between countries, private companies, and international
+        space organizations. And while it's not always easy (or cheap), the
+        results are out of this world. Think about the first time humans stepped
+        foot on the moon or when rovers were sent to roam around on Mars.
+      </TextExpander>
+
+      <TextExpander
+        expanded={true}
+        className="box"
+        expandButtonText="Show more"
+        collapseButtonText="Show less"
+        buttonColor="blue"
+      >
+        Space missions have given us incredible insights into our universe and
+        have inspired future generations to keep reaching for the stars. Space
+        travel is a pretty cool thing to think about. Who knows what we'll
+        discover next!
+      </TextExpander>
     </div>
+  );
+}
+
+function TextExpander({
+  children,
+  collapsedNumWords,
+  expandButtonText,
+  collapseButtonText,
+  buttonColor,
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const words = children.split(' ');
+  const displayWords = isExpanded ? words : words.slice(0, collapsedNumWords);
+
+  return (
+    <>
+      <p>
+        {displayWords.join(' ')}
+        {!isExpanded && '...'}
+      </p>
+      <button
+        style={{ color: buttonColor, border: 'none' }}
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        {isExpanded ? collapseButtonText : expandButtonText}
+      </button>
+    </>
   );
 }
