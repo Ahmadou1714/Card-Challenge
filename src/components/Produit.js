@@ -3,7 +3,7 @@ import React from 'react';
 export default function Produit() {
   const starStyle = {
     fill: 'gold',
-    width: '15px',
+    width: '14px',
     height: '24px',
     marginRight: '4px',
   };
@@ -12,7 +12,7 @@ export default function Produit() {
     fill: 'none',
     stroke: 'gold',
     strokeWidth: '2',
-    width: '15px',
+    width: '14px',
     height: '24px',
     marginRight: '4px',
   };
