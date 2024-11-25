@@ -24,8 +24,8 @@ Reproduire une carte produit moderne et responsive conforme au design fourni.
 1.  Clone ce dépôt :
 
     ```bash
-    git clone https://github.com/<ton-username>/react-product-card-challenge.git
-    cd react-product-card-challenge
+    git clone https://github.com/Ahmadou1714/Card-Challenge.git
+    cd Challenge_Card
 
     ```
 
@@ -47,7 +47,7 @@ Reproduire une carte produit moderne et responsive conforme au design fourni.
 
 L’application est déployée sur Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://exercice-react-caoqcr02p-amadou-diarras-projects.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://challenge-card-xi.vercel.app/)
 
 🏆 Challenge
 
