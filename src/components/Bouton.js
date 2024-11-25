@@ -6,7 +6,7 @@ export default function Bouton() {
     <div className="bouton">
       <button className="add-to-cart-button">Ajouter au panier</button>
       <button className="favorite-button">
-        <Heart size={16} />
+        <Heart size={20} />
       </button>
     </div>
   );

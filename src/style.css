@@ -21,7 +21,7 @@ body {
   gap: 2rem;
   background-color: #fff;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.8rem;
   max-width: 750px;
   width: 100%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -112,7 +112,7 @@ body {
 }
 
 .add-to-cart-button {
-  flex: 1;
+  flex: 0.9;
   background-color: #007bff;
   color: white;
   padding: 0.8rem 1.2rem;
@@ -135,7 +135,7 @@ body {
   background-color: #e3e6ea;
   color: #007bff;
   border: none;
-  padding: 0.8rem;
+  padding: 0.6rem;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
