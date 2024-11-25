@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import React from 'react';
 import Badge from './components/Badge';
 import Bouton from './components/Bouton';
@@ -9,6 +10,7 @@ export default function App() {
   return (
     <div className="product-card">
       <Image />
+      <SpeedInsights />
       <div>
         <Badge />
         <Produit />
