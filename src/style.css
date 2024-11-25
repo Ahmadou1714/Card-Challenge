@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
 }
 
-/* Style général de la carte produit */
+/* Style général de la carte  */
 .product-card {
   display: grid;
   grid-template-columns: 2fr 1.5fr;
