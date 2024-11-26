@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { motion } from 'framer-motion';
 import React from 'react';
 import Badge from './components/Badge';
 import Bouton from './components/Bouton';
@@ -8,15 +9,24 @@ import Produit from './components/Produit';
 
 export default function App() {
   return (
-    <div className="product-card">
+    <motion.div
+      className="product-card"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <Image />
       <SpeedInsights />
-      <div>
+      <motion.div
+        initial={{ y: -20 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Badge />
         <Produit />
         <Prix />
         <Bouton />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

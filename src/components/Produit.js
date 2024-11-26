@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 
 export default function Produit() {
@@ -19,7 +20,13 @@ export default function Produit() {
 
   return (
     <>
-      <h1>Montre Connectée FtLife Pro 5+</h1>
+      <motion.h1
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Montre Connectée FtLife Pro 5+
+      </motion.h1>
       <div className="product-details">
         <div>
           {Array.from({ length: 4 }).map((_, index) => (
@@ -40,7 +47,13 @@ export default function Produit() {
             <path d="M12 .587l3.668 7.568L24 9.423l-6 5.849 1.417 8.268L12 18.896l-7.417 4.644L6 15.272 0 9.423l8.332-1.268z" />
           </svg>
         </div>
-        <span>43 notes</span>
+        <motion.span
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          43 notes
+        </motion.span>
       </div>
     </>
   );
