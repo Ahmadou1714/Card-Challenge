@@ -3,6 +3,8 @@ import { Heart } from 'lucide-react';
 import React from 'react';
 
 export default function Bouton() {
+  function handleClickHeart() {}
+
   return (
     <motion.div
       className="bouton"
@@ -11,7 +13,7 @@ export default function Bouton() {
       transition={{ duration: 0.5 }}
     >
       <button className="add-to-cart-button">Ajouter au panier</button>
-      <button className="favorite-button">
+      <button className="favorite-button" onClick={handleClickHeart}>
         <Heart size={20} />
       </button>
     </motion.div>
